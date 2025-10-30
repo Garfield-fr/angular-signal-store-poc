@@ -1,0 +1,33 @@
+<div class="flex flex-col">
+  <h1 class="flex justify-center">Tâche</h1>
+  <div class="flex justify-center">
+    <div class="w-[30%]">
+      <div class="flex flex-col gap-2 my-4">
+        <input class="w-full" #input type="text" pInputText placeholder="Ajouter un élément et presser entrer" (keyup.enter)="addTodo(input.value)" />
+        <div class="flex justify-end text-gray-400 italic text-sm">{{ store.todos().length }} elements</div>
+      </div>
+
+      <div class="my-8 flex justify-center">
+        <p-selectbutton (onChange)="updateFilter($event)" [(ngModel)]="filter" [options]="filtersOptions()" optionLabel="label" optionValue="value" aria-labelledby="basic" />
+      </div>
+
+      <div class="flex">
+        <ul class="mt-4 w-full">
+          @for (todo of store.filteredTodos(); track todo.id) {
+            <li class="mt-2">
+              <div class="flex gap-8 w-full items-center justify-between">
+                <div>
+                  <p-toggleswitch #toggle [ngModel]="todo.completed" (onChange)="updateTodo(todo.id, $event)" />
+                </div>
+                <div [ngClass]="{'line-through text-gray-400': todo.completed }">{{ todo.title }}</div>
+                <div>
+                  <p-button icon="pi pi-trash" severity="secondary" (onClick)="deleteTodo(todo.id)" />
+                </div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
