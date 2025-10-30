@@ -24,6 +24,10 @@ export class Menu {
     {
       label: 'Tâche',
       routerLink: ['/', 'todo']
+    },
+    {
+      label: 'Livres',
+      routerLink: ['/', 'books']
     }
   ]);
 
@@ -33,7 +37,6 @@ export class Menu {
       visible: !this.store.isConnected(),
       command: () => {
         this.router.navigate(['login']);
-        //this.store.login();
       }
     },
     {

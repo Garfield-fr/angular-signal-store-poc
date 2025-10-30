@@ -19,6 +19,11 @@ export const routes: Routes = [
     title: 'Document'
   },
   {
+    path: 'books',
+    loadComponent: () => import('./features/books/books'),
+    title: 'Livres'
+  },
+  {
     path: '**',
     loadComponent: () => import('./features/not-found/not-found'),
     title: 'Not Found'

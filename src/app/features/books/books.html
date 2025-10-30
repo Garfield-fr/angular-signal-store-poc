@@ -1,0 +1,22 @@
+<div class="flex flex-col gap-4">
+  <h1>Livres</h1>
+
+  <app-search />
+
+  @if(store.total() > 0) {
+    <div class="font-sm italic">Nombre de résultats: {{ store.total() }}</div>
+    <div class="mt-4">
+      @for(document of store.documents(); track document.key; let last = $last) {
+        <app-book [book]="document" />
+        @if (!last) {
+          <p-divider />
+        }
+      }
+    </div>
+    <div class="mt-4">
+      <shared-paginator [paginatorState]="paginatorConfig()" (pageChange)="store.setPaginator($event)" />
+    </div>
+  } @else {
+    <div class="font-sm italic">Aucun résultat…</div>
+  }
+</div>
