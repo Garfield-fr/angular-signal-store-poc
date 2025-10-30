@@ -2,6 +2,13 @@
 
 Projet pour tester NgRx Signal Store
 
+Vous devez avoir au préalable installer pnpm sur votre système.
+
+## Installation de bibliothèques
+```bash
+pnpm install
+```
+
 ## Bibliothèques dans ce projet
 
 - [Angular 20](https://angular.dev)
@@ -14,7 +21,7 @@ Projet pour tester NgRx Signal Store
 Pour démarrer le projet
 
 ```bash
-npm run start
+pnpm run start
 ```
 
 Une fois le serveur lancé, ouvrez votre navigateur et rendez-vous à l'adresse `http://localhost:4200/`. L'application se rechargera automatiquement chaque fois que vous modifierez l'un des fichiers source.
